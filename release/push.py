@@ -11,9 +11,9 @@ config.read(os.path.join(selfpath, "config.ini"))
 
 g = Github(config['github']['token'])
 
-repo = g.get_user().get_repo("treble_experimentations")
+repo = g.get_repo('TrebleDroid/treble_experimentations')
 
-release = repo.create_git_release(sys.argv[2], sys.argv[1] + " " + sys.argv[2], "Automatic release", draft = True)
+release = repo.create_git_release(sys.argv[2], sys.argv[1] + " " + sys.argv[2], "CI build", draft = True)
 print("Made release " + str(release))
 folder = sys.argv[3]
 for f in os.listdir(folder):

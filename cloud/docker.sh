@@ -33,7 +33,7 @@ name="phh-treble-$suffix"
 
 echo "Running build on $name"
 
-docker run --privileged --name "$name" --rm -d ubuntu:20.04 sleep infinity
+docker run -v /nvme1/docker-build:/build-dir --privileged --name "$name" --rm -d ubuntu:20.04 sleep infinity
 
 docker exec "$name" echo "Good morning, now building"
 
@@ -82,14 +82,14 @@ run_script '
 
 run_script 'curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash ; apt install git-lfs; git lfs install'
 
-run_script 'git clone https://github.com/phhusson/treble_experimentations'
+run_script 'git clone https://github.com/TrebleDroid/treble_experimentations'
 
 run_script 'echo >> /etc/hosts ; echo 84.38.177.154 git.rip >> /etc/hosts'
 
 run_script '\
-	mkdir build-dir && \
+	mkdir -p build-dir && \
 	sed -E -i "s/(repo sync.*)-j 1/\1-j16/g" treble_experimentations/build.sh && \
-	sed -E -i "s/(make.*)-j8/\1-j48/g" treble_experimentations/build.sh
+    sed -E -i "s/(make.*)-j8/\1-j48/g" treble_experimentations/build.sh
 	'
 
 run_script "cd build-dir && bash ../treble_experimentations/build.sh $android_version"

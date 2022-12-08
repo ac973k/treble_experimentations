@@ -25,13 +25,13 @@ fi
 # We only end up here if $REPO_REMOTE is set (i.e. the script was called by repo forall)
 # -> and we are inside a git repository
 
-# check if this repo is modified (i.e. pulled from phh), exit/abort if not
-git remote get-url phh 2>/dev/null || exit 0
-git fetch --unshallow phh $REPO_RREV
+# check if this repo is modified (i.e. pulled from td remote), exit/abort if not
+git remote get-url td 2>/dev/null || exit 0
+git fetch --unshallow td $REPO_RREV
 
 
-# if repo comes from phh, then get all the changes done against the "official" aosp source
-compact_remote="$(git remote get-url phh|cut -d / -f 5)"
+# if repo comes from td, then get all the changes done against the "official" aosp source
+compact_remote="$(git remote get-url td|cut -d / -f 5)"
 original_remote=https://android.googlesource.com/"$(tr _ /  <<<$compact_remote)"
 if git fetch --tags $original_remote;then
 	echo $REPO_PROJECT
