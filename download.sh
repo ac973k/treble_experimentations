@@ -24,8 +24,10 @@ else
 	git clone https://github.com/ac973k/treble_manifest .repo/local_manifests -b $phh
 fi
 repo sync -c -j 1 --force-sync || repo sync -c -j1 --force-sync
+repo forall -r '.*opengapps.*' -c 'git lfs fetch && git lfs checkout'
 
-(cd device/phh/treble; git clean -fdx; bash generate.sh)
+(cd device/phh/treble; git clean -fdx; if [ -f phh.mk ];then bash generate.sh phh;else bash generate.sh;fi)
+(cd vendor/foss; git clean -fdx; bash update.sh)
 
 . build/envsetup.sh
 
@@ -33,9 +35,8 @@ repo manifest -r > release/$rom_fp/manifest.xml
 bash "$originFolder"/list-patches.sh
 cp patches.zip release/$rom_fp/patches-for-developers.zip
 
-(
-    git clone https://github.com/ac973k/sas-creator
-    cd sas-creator
+git clone https://github.com/ac973k/sas-creator
+cd sas-creator
 
-    git clone https://github.com/phhusson/vendor_vndk -b android-10.0
-)
+git clone https://github.com/phhusson/vendor_vndk -b android-10.0
+
