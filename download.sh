@@ -18,7 +18,7 @@ build_target="$1"
 rebuild_release=""
 if [ "$1" == "android-12.0" ];then
     manifest_url="https://android.googlesource.com/platform/manifest"
-    aosp="android-12.1.0_r11"
+    aosp="android-12.1.0_r27"
     phh="android-12.0"
 
 	# download manifest with the given version number
