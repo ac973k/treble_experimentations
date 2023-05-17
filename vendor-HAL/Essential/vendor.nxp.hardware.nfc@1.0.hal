@@ -1,1 +1,0 @@
-ioctl(unsigned long, vec<unsigned char>) generates (vec<unsigned char>)

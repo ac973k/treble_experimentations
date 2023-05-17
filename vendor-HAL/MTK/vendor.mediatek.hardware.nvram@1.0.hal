@@ -1,2 +1,0 @@
-readFileByName(string, unsigned int) generates (string)
-writeFileByNamevec(string, unsigned int, vec<unsigned char>)

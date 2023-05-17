@@ -1,4 +1,0 @@
-getRtcTime()
-cancelAlarm()
-getAlarm()
-setAlarm(long long)

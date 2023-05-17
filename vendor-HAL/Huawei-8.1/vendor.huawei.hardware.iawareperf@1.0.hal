@@ -1,3 +1,0 @@
-uniPerfEvent(int, string, vec<int>)
-uniPerfGetConfig(vec<int>) generates (int, vec<int>)
-uniPerfSetConfig(int, vec<int>, vec<int>)
