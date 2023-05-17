@@ -10,7 +10,9 @@ if [ -z "$USER" ];then
 fi
 export LC_ALL=C
 
-(cd device/phh/treble; git clean -fdx; bash generate.sh)
+cd device/phh/treble
+git clean -fdx
+bash generate.sh
 
 . build/envsetup.sh
 

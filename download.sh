@@ -29,7 +29,7 @@ repo manifest -r > release/$rom_fp/manifest.xml
 bash "$originFolder"/list-patches.sh
 cp patches.zip release/$rom_fp/patches-for-developers.zip
 
-git clone https://github.com/TrebleDroid/sas-creator
+git clone https://github.com/ac973k/sas-creator
 cd sas-creator
 
 git clone https://github.com/phhusson/vendor_vndk -b android-10.0
