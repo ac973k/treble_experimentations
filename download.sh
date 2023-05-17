@@ -21,7 +21,7 @@ repo init -u "$manifest_url" -b $aosp --depth=1
 if [ -d .repo/local_manifests ] ;then
 	( cd .repo/local_manifests; git fetch; git reset --hard; git checkout origin/$phh)
 else
-	git clone https://github.com/TrebleDroid/treble_manifest .repo/local_manifests -b $phh
+	git clone https://github.com/ac973k/treble_manifest .repo/local_manifests -b $phh
 fi
 repo sync -c -j 1 --force-sync || repo sync -c -j1 --force-sync
 
