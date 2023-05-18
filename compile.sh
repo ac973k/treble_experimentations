@@ -29,3 +29,5 @@ xz -c $OUT/system.img -T0 > release/$rom_fp/system-td-arm64-ab-vanilla.img.xz
 cd sas-creator
 sudo bash lite-adapter.sh 64
 xz -c s.img -T0 > ../release/$rom_fp/system-td-arm64-ab-vndklite-vanilla.img.xz
+sudo bash securize.sh s.img
+xz -c s-secure.img -T0 > ../release/$rom_fp/system-td-arm64-ab-vndklite-vanilla-secure.img.xz
