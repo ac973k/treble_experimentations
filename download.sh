@@ -11,7 +11,7 @@ fi
 export LC_ALL=C
 
 manifest_url="https://android.googlesource.com/platform/manifest"
-aosp="android-13.0.0_r41"
+aosp="android-13.0.0_r75"
 phh="android-13.0"
 
 build_target="$1"
